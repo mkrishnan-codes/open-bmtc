@@ -4,7 +4,12 @@
   "description": "bmtc bus search",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "minify": "npm run min-html && npm run min-css",
+    "min-css": "npx minify ./assets/style.css > ./public/assets/style.min.css",
+    "min-html": "npx minify ./src/index-dev.html > public/index.html && npx minify ./src/resources/bmtc-table-v.html > ./public/resources/bmtc-table-v.html",
+    "build": "sudo npm run minify",
+    "dev": "npm run minify && npx serve"
   },
   "repository": {
     "type": "git",
@@ -23,5 +28,9 @@
   "bugs": {
     "url": "https://github.com/mkrishnan-codes/open-bmtc/issues"
   },
-  "homepage": "https://github.com/mkrishnan-codes/open-bmtc#readme"
+  "homepage": "https://github.com/mkrishnan-codes/open-bmtc#readme",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
 }
