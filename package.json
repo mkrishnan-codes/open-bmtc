@@ -1,0 +1,27 @@
+{
+  "name": "open-bmtc",
+  "version": "1.0.0",
+  "description": "bmtc bus search",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkrishnan-codes/open-bmtc.git"
+  },
+  "keywords": [
+    "bmtc",
+    "open",
+    "bus",
+    "bangalore",
+    "public",
+    "transport"
+  ],
+  "author": "Manu Krishnan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mkrishnan-codes/open-bmtc/issues"
+  },
+  "homepage": "https://github.com/mkrishnan-codes/open-bmtc#readme"
+}
