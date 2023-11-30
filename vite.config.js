@@ -1,7 +1,5 @@
 
 
   export default {
-    build: {
-        outDir: './dist'
-      }
+    base:'/open-bmtc/'
   }
