@@ -24,7 +24,7 @@ const filterTable = (text) => {
       displayRows.push(parseInt(key));
     }
   }
-  for (var i = 0; i < rows.length; i++) {
+  for (var i = 1; i < rows.length; i++) {
     var cells = rows[i].cells;
 
     if (displayRows.includes(i)) {
@@ -62,4 +62,11 @@ export const createJsObjectFromTable = () => {
     }
     i += plus;
   }
+};
+
+export const createHtmlElementFromstring = (divString) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(divString, "text/html");
+  const newElement = doc.body.firstChild;
+  return newElement;
 };
