@@ -1,5 +1,6 @@
 # open-bmtc
-BMTC volvo Bus route timing search app
+BMTC volvo Bus route timing search app 
+Deployed at - https://mkrishnan-codes.github.io/open-bmtc/
  created based on bmtc website timetable [took at 29/11/2023]
  Scrapped the table and put it inside res folder
 
