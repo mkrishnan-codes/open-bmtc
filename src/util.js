@@ -10,10 +10,9 @@ export const addAttributes = (element, attributes) => {
 };
 const filterTable = (text) => {
   var table = document.getElementById(TABLE_ID);
-//   var rows = table.querySelectorAll(".searchable");
   var rows = table.querySelectorAll("tr");
 
-  // Change the condition based on your requirement
+  // Change the condition
   const displayRows = [];
   for (const key in dictionary) {
     const obj = dictionary[key];
@@ -25,9 +24,7 @@ const filterTable = (text) => {
       displayRows.push(parseInt(key));
     }
   }
-console.log(displayRows,rows.length,"DISPLAYROWS");
   for (var i = 0; i < rows.length; i++) {
-    // Start from 1 to skip the header row
     var cells = rows[i].cells;
 
     if (displayRows.includes(i)) {
@@ -41,7 +38,7 @@ console.log(displayRows,rows.length,"DISPLAYROWS");
 export const onFilter = (event) => {
   filterTable(event.target.value);
 };
-const createFIlter = (cells,rowspan) => {
+const createFIlter = (cells, rowspan) => {
   return {
     name: cells[0].innerHTML.trim().toLowerCase(),
     fromTo: cells[1].innerHTML.trim().toLowerCase(),
@@ -49,20 +46,20 @@ const createFIlter = (cells,rowspan) => {
     rowspan,
   };
 };
-export const assignColumnIdentifier = () => {
+export const createJsObjectFromTable = () => {
   var table = document.getElementById(TABLE_ID);
   var rows = table.getElementsByTagName("tr");
   dictionary = {};
 
   let i = 1;
   while (i < rows.length) {
-    // Start from 1 to skip the header row
     var cells = rows[i].cells;
-    rows[i].setAttribute("class", "searchable");
-    var name = cells[0].setAttribute("class", "route");
     const plus = parseInt(cells[0].getAttribute("rowspan") || 1);
-    dictionary[i] = createFIlter(cells,plus);
+    const obj = createFIlter(cells, plus);
+    dictionary[i] = obj;
+    for (let j = 0; j < plus; j++) {
+      dictionary[i + j] = obj;
+    }
     i += plus;
   }
-  console.log(dictionary, "Dictio");
 };

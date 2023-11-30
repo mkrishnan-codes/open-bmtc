@@ -1,7 +1,7 @@
 import "./style.css";
 import { BMTC_TABLE } from "./res/table";
 import "./style.css";
-import { addAttributes, assignColumnIdentifier, onFilter } from "./src/util";
+import { addAttributes, createJsObjectFromTable, onFilter } from "./src/util";
 import { FILTER_ID, TABLE_ID } from "./src/constants";
 const init = () => {
   document.querySelector("#app").innerHTML = BMTC_TABLE;
@@ -13,6 +13,6 @@ const init = () => {
   });
   input.addEventListener("input", onFilter);
   document.querySelector("#app").prepend(input);
-  assignColumnIdentifier();
+  createJsObjectFromTable();
 };
 init();
