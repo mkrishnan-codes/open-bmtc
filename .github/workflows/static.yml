@@ -31,9 +31,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set env
-        run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+        run: echo "VITE_GITHUB_SHA=$GITHUB_SHA" >> $GITHUB_ENV
       - name: Set env 2
-        run: echo "GITHUB_RUN_NUMBER=${{github.run_number}}" >> $GITHUB_ENV
+        run: echo "VITE_GITHUB_RUN_NUMBER=${{github.run_number}}" >> $GITHUB_ENV
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
