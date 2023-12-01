@@ -1,4 +1,4 @@
-import { TABLE_ID } from "./constants";
+import { GITHUB_RUN_NUMBER, GITHUB_SHA, TABLE_ID } from "./constants";
 let dictionary = {};
 export const addAttributes = (element, attributes) => {
   for (const key in attributes) {
@@ -70,3 +70,6 @@ export const createHtmlElementFromstring = (divString) => {
   const newElement = doc.body.firstChild;
   return newElement;
 };
+export const getVersionInfo = () =>{
+  return createHtmlElementFromstring(`<div class="d-flex pad ver">About :  Ver 0.${GITHUB_RUN_NUMBER} / Build ${String(GITHUB_SHA).substring(0,6)}</div>`)
+}
