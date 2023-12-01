@@ -1,8 +1,8 @@
 import "./style.css";
 import { BMTC_TABLE } from "./res/table";
 import "./style.css";
-import { createJsObjectFromTable, onFilter, createHtmlElementFromstring } from "./src/util";
-import { FILTER_ID, GITHUB_RUN_NUMBER, GITHUB_SHA, TABLE_ID } from "./src/constants";
+import { createJsObjectFromTable, onFilter, createHtmlElementFromstring, getVersionInfo } from "./src/util";
+import { FILTER_ID, TABLE_ID } from "./src/constants";
 import { content } from "./res/contentTemplate";
 const init = () => {
   document.querySelector("#app").innerHTML = BMTC_TABLE;
@@ -12,6 +12,6 @@ const init = () => {
   const input = document.getElementById(FILTER_ID)
   input.addEventListener("input", onFilter);
   createJsObjectFromTable();
-  document.querySelector("#app").append(createHtmlElementFromstring(`<div class="d-flex pad">About :  Ver 0.${GITHUB_RUN_NUMBER} / Build${GITHUB_SHA}</div>`))
+  document.querySelector("#app").append(getVersionInfo())
 };
 init();
